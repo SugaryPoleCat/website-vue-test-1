@@ -1,0 +1,20 @@
+{
+	"compilerOptions": {
+		"watch": true,
+		"esModuleInterop": true,
+		"noImplicitAny": false,
+		"noEmitOnError": false,
+		"removeComments": true,
+		"pretty": true,
+		"alwaysStrict": true,
+		"strict": true,
+		"outDir": "dist/"
+	},
+	"include": [
+		"server/**/*.ts",
+	],
+	"exclude": [
+		"vue/",
+		"node_modules/"
+	]
+}
