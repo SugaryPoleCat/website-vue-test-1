@@ -1,0 +1,1 @@
+nodemon dist/server.js --watch dist/
