@@ -1,13 +1,31 @@
 import express, { Request, Response } from "express";
 import cors from "cors";
-const App = express();
-App.use(cors());
+async function run() {
+	const App = express();
+	App.use(cors());
 
-App.get("/", (req: Request, res: Response) => {
-	res.send("Hello! It seems its still under development");
-});
+	try {
+		App.get("/", (req: Request, res: Response) => {
+			res.send("Hello! It seems its still under development");
+		});
+	} catch (err: any) {
+		throw new Error(String(err.message));
+	}
 
-const PORT = process.env.PORT || 1501;
-App.listen(PORT, () => {
-	console.log("listening on port" + PORT);
-});
+	const PORT = Number(process.env.PORT) || 1501;
+	try {
+		App.listen(PORT, () => {
+			console.log("listening on port" + PORT);
+		});
+	} catch (err: any) {
+		throw new Error(String(err.message));
+	}
+}
+(async () => {
+	try {
+		await run();
+	} catch (err) {
+		console.error(err);
+		process.exit(1);
+	}
+})();
