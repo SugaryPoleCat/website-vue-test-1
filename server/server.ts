@@ -1,40 +1,34 @@
-import express, { Request, Response } from "express";
+import express, { Request, Response, Express, NextFunction } from "express";
 import cors from "cors";
 import path from "path";
-// doeanst want to uimport for no reaeson.
-import { router } from "./router/index";
-// console.log(__dirname);
-// const tuter = require(path.join(__dirname, "router/index"));
-async function run() {
-	const App = express();
+import bodyParser from "body-parser";
+const vuePath: string = path.join(__dirname, "../vue/dist");
+
+async function run(): Promise<void> {
+	const App: Express = express();
 	App.use(cors());
-	const vuePath = path.join(__dirname, "../vue/dist");
 	App.use(express.static(vuePath));
+	App.use(bodyParser.json());
+	App.use(bodyParser.urlencoded({ extended: true }));
 
 	try {
-		// router doesnt seem to work right withvure
-		App.use("*", router);
-		// App.get("/", (req: Request, res: Response) => {
-		// 	res.send("Hello! It seems its still under development");
-		// });
-
-		// App.get('*', (req: Request, res: Response) => {
-		// 	res.sendFile(path.join(vuePath, "index.html"));
-		// });
+		App.get('*', async (request: Request, response: Response, next: NextFunction): Promise<void> => {
+			response.sendFile(path.join(vuePath, "index.html"));
+		});
 	} catch (err: any) {
 		throw new Error(String(err.message));
 	}
 
-	const PORT = Number(process.env.PORT) || 1501;
+	const PORT: number = Number(process.env.PORT) || 1501;
 	try {
-		App.listen(PORT, () => {
+		App.listen(PORT, async (): Promise<void> => {
 			console.log("listening on port", PORT);
 		});
 	} catch (err: any) {
 		throw new Error(String(err.message));
 	}
 }
-(async () => {
+(async (): Promise<void> => {
 	try {
 		await run();
 	} catch (err) {
