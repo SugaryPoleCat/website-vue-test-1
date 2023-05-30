@@ -16,7 +16,7 @@ async function run(): Promise<void> {
 			response.sendFile(path.join(vuePath, "index.html"));
 		});
 	} catch (err: any) {
-		throw new Error(String(err.message));
+		throw new Error("ERROR  HGAPPENED!!!!" + String(err.message));
 	}
 
 	const PORT: number = Number(process.env.PORT) || 1501;
@@ -25,14 +25,13 @@ async function run(): Promise<void> {
 			console.log("listening on port", PORT);
 		});
 	} catch (err: any) {
-		throw new Error(String(err.message));
+		throw new Error("ERROR HAPPENED!!!!" + String(err.message));
 	}
 }
 (async (): Promise<void> => {
 	try {
 		await run();
 	} catch (err) {
-		console.error(err);
-		process.exit(1);
+		console.error("CONSOLE ERRROR!!!", err);
 	}
 })();
