@@ -12,6 +12,8 @@
     "useDefineForClassFields": true,
     "sourceMap": true,
     "baseUrl": ".",
+    "removeComments": true,
+    "pretty": true,
     "types": [
       "webpack-env"
     ],
