@@ -5,13 +5,6 @@
   </nav> -->
   <router-view />
 </template>
-<script lang="ts">
-const currentYear = document.getElementById("currentYear");
-if (currentYear) {
-  currentYear.textContent = String(new Date().getFullYear());
-}
-</script>
-
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
