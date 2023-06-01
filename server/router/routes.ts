@@ -3,7 +3,7 @@ import path from "path";
 import { Router } from "express";
 const vuePath: string = path.join(__dirname, "../vue/dist");
 
-module.exports = async App => {
+module.exports = async app => {
 	const router: Router = Router();
 	router.use((req: Request, res: Response, next: NextFunction) => {
 		console.log("Time:", new Date().toUTCString());
@@ -14,5 +14,5 @@ module.exports = async App => {
 		res.sendFile(path.join(vuePath, "index.html"));
 		// next();
 	});
-	App.use("/api", router);
+	app.use("/api", router);
 };
