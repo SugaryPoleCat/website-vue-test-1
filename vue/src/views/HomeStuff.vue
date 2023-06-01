@@ -19,6 +19,7 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
 	name: "HomeStuff",
+	title: "Sucrosia | Home"
 });
 </script>
 <style>
