@@ -13,6 +13,9 @@ router.get('/', (req: Request, res: Response, next: NextFunction) => {
 	res.sendFile(path.join(vuePath, "index.html"));
 	// next();
 });
+router.get("/about", (req: Request, res: Response, next: NextFunction) => {
+	res.sendFile(path.join(vuePath, "index.html"));
+});
 // router.get("/about", (req, res, next) => {
 // 	res.sendFile(path.join(vuePath, "index.html"));
 // 	// next();

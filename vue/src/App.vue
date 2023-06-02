@@ -1,8 +1,8 @@
 <template>
-  <!-- <nav>
+  <nav>
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
-  </nav> -->
+  </nav>
   <router-view />
 </template>
 <style>
@@ -13,7 +13,7 @@
   text-align: center;
   /* color: #2c3e50; */
   /* width: 100%; */
-  margin: 20% auto;
+  margin: 0px auto;
 }
 
 #wrapper {
@@ -30,11 +30,16 @@ a {
 
 nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: #793948;
+  transition: all ease-in-out 0.25s;
+}
+
+nav a:hover {
+  color: #ec4e85;
 }
 
 nav a.router-link-exact-active {
-  color: #42b983;
+  color: #ec4e85;
 }
 
 footer {
