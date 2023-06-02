@@ -27,10 +27,15 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
+  console.log(to);
+  console.log(from);
   const title = to.meta.title;
   // if (title) {
   //   document.title = title;
   // }
+  // hmm document doesnt exist here, so there has to be a differnet wayh to set it.
+  console.log("stuff");
+  console.log(title);
   next();
 });
 export default router;
